@@ -14,6 +14,8 @@
 		AFD018E02BDBF72F00A2E626 /* NutriSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018DF2BDBF72F00A2E626 /* NutriSnapTests.swift */; };
 		AFD018EA2BDBF72F00A2E626 /* NutriSnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018E92BDBF72F00A2E626 /* NutriSnapUITests.swift */; };
 		AFD018EC2BDBF72F00A2E626 /* NutriSnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018EB2BDBF72F00A2E626 /* NutriSnapUITestsLaunchTests.swift */; };
+		AFD018FA2BDBF98C00A2E626 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018F92BDBF98C00A2E626 /* SplashView.swift */; };
+		AFD018FC2BDF3F8100A2E626 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018FB2BDF3F8100A2E626 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		AFD018E52BDBF72F00A2E626 /* NutriSnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriSnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD018E92BDBF72F00A2E626 /* NutriSnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSnapUITests.swift; sourceTree = "<group>"; };
 		AFD018EB2BDBF72F00A2E626 /* NutriSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AFD018F92BDBF98C00A2E626 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		AFD018FB2BDF3F8100A2E626 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		AFD018CD2BDBF72E00A2E626 /* NutriSnap */ = {
 			isa = PBXGroup;
 			children = (
+				AFD018F82BDBF8E900A2E626 /* Views */,
 				AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */,
 				AFD018D02BDBF72E00A2E626 /* ContentView.swift */,
 				AFD018D22BDBF72F00A2E626 /* Assets.xcassets */,
@@ -125,6 +130,15 @@
 				AFD018EB2BDBF72F00A2E626 /* NutriSnapUITestsLaunchTests.swift */,
 			);
 			path = NutriSnapUITests;
+			sourceTree = "<group>";
+		};
+		AFD018F82BDBF8E900A2E626 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFD018F92BDBF98C00A2E626 /* SplashView.swift */,
+				AFD018FB2BDF3F8100A2E626 /* MainView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFD018D12BDBF72E00A2E626 /* ContentView.swift in Sources */,
+				AFD018FC2BDF3F8100A2E626 /* MainView.swift in Sources */,
 				AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */,
+				AFD018FA2BDBF98C00A2E626 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +446,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +476,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
