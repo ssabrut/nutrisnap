@@ -8,49 +8,41 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    let onboardingImageSize: CGFloat = 256
-    let cornerRadius: CGFloat = 12
-    let containerPadding: CGFloat = 24
-    let headerFontSize: CGFloat = 18
-    let titleFontSize: CGFloat = 32
+    private let cornerRadius: CGFloat = 12
+    private let containerPadding: CGFloat = 24
+    private let headerFontSize: CGFloat = 18
+    private let titleFontSize: CGFloat = 32
+    @State private var step: Int = 1
     
     var body: some View {
         ZStack {
             VStack {
-                HStack(spacing: 0) {
-                    Text("Nutri")
-                        .font(.system(size: titleFontSize))
-                        .fontWeight(.heavy)
-                        .foregroundStyle(Color("TextOrange"))
-                    Text("Snap")
-                        .font(.system(size: titleFontSize))
-                        .fontWeight(.heavy)
-                        .foregroundStyle(Color("TextNavyBlue"))
+                if step == 1 {
+                    IntroductionOnboarding()
+                } else {
+                    UserDataOnboarding()
                 }
-                .padding(.bottom, 2)
-                Text("Track what you eat in")
-                    .font(.system(size: headerFontSize))
-                    .bold()
-                Text("seconds with AI")
-                    .font(.system(size: headerFontSize))
-                    .bold()
-                Spacer()
-                Image("OnboardingImage")
-                    .resizable()
-                    .frame(width: onboardingImageSize, height: onboardingImageSize)
-                    .cornerRadius(cornerRadius)
-                    .shadow(radius: 8, x: 8, y: 6)
+                
                 Spacer()
                 Button(action: {
-                    print("a")
+                    step = step == 1 ? 2 : 0 // change 0 to navigation
                 }) {
-                    Text("Continue")
-                        .font(.system(size: headerFontSize))
-                        .bold()
-                        .foregroundStyle(.white)
+                    if step == 1 {
+                        Text("Continue")
+                            .font(.system(size: headerFontSize))
+                            .bold()
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                            .padding(.vertical, 16)
+                    } else {
+                        Text("Get Started")
+                            .font(.system(size: headerFontSize))
+                            .bold()
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                            .padding(.vertical, 16)
+                    }
                 }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .padding(.vertical, 16)
                 .background(Color("BGNavyBlue"))
                 .cornerRadius(cornerRadius)
             }
