@@ -19,6 +19,7 @@
 		AFD018FF2BDF7E1200A2E626 /* CalorieProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */; };
 		AFD019012BDF7E4A00A2E626 /* MealCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019002BDF7E4A00A2E626 /* MealCard.swift */; };
 		AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019052BDF80EF00A2E626 /* OnboardingView.swift */; };
+		AFD019112BE0837400A2E626 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019102BE0837400A2E626 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieProgressCard.swift; sourceTree = "<group>"; };
 		AFD019002BDF7E4A00A2E626 /* MealCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCard.swift; sourceTree = "<group>"; };
 		AFD019052BDF80EF00A2E626 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		AFD019102BE0837400A2E626 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		AFD018CD2BDBF72E00A2E626 /* NutriSnap */ = {
 			isa = PBXGroup;
 			children = (
+				AFD0190F2BE0835C00A2E626 /* Controllers */,
 				AFD018F82BDBF8E900A2E626 /* Views */,
 				AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */,
 				AFD018D02BDBF72E00A2E626 /* ContentView.swift */,
@@ -143,9 +146,6 @@
 			children = (
 				AFD019022BDF808300A2E626 /* UI */,
 				AFD018FD2BDF7DFF00A2E626 /* Components */,
-				AFD018F92BDBF98C00A2E626 /* SplashView.swift */,
-				AFD018FB2BDF3F8100A2E626 /* MainView.swift */,
-				AFD019052BDF80EF00A2E626 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,10 +160,29 @@
 		AFD019022BDF808300A2E626 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AFD019072BE07EEA00A2E626 /* Card */,
+				AFD018F92BDBF98C00A2E626 /* SplashView.swift */,
+				AFD018FB2BDF3F8100A2E626 /* MainView.swift */,
+				AFD019052BDF80EF00A2E626 /* OnboardingView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AFD019072BE07EEA00A2E626 /* Card */ = {
+			isa = PBXGroup;
+			children = (
 				AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */,
 				AFD019002BDF7E4A00A2E626 /* MealCard.swift */,
 			);
-			path = UI;
+			path = Card;
+			sourceTree = "<group>";
+		};
+		AFD0190F2BE0835C00A2E626 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFD019102BE0837400A2E626 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +321,7 @@
 				AFD018FC2BDF3F8100A2E626 /* MainView.swift in Sources */,
 				AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */,
 				AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */,
+				AFD019112BE0837400A2E626 /* ViewController.swift in Sources */,
 				AFD018FA2BDBF98C00A2E626 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

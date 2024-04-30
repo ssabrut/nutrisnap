@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
 
-struct MainView: View {
-    
-    
+struct MainView: View {    
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
@@ -52,7 +51,7 @@ struct MainView: View {
                         .bold()
                     Spacer()
                     Button(action: {
-                        kCGImagePropertyTIFFModel
+                        print("a")
                     }) {
                         Text("+ Add Meal")
                             .font(.system(size: 12))
