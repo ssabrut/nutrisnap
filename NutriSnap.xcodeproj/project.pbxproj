@@ -16,6 +16,9 @@
 		AFD018EC2BDBF72F00A2E626 /* NutriSnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018EB2BDBF72F00A2E626 /* NutriSnapUITestsLaunchTests.swift */; };
 		AFD018FA2BDBF98C00A2E626 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018F92BDBF98C00A2E626 /* SplashView.swift */; };
 		AFD018FC2BDF3F8100A2E626 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018FB2BDF3F8100A2E626 /* MainView.swift */; };
+		AFD018FF2BDF7E1200A2E626 /* CalorieProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */; };
+		AFD019012BDF7E4A00A2E626 /* MealCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019002BDF7E4A00A2E626 /* MealCard.swift */; };
+		AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019052BDF80EF00A2E626 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		AFD018EB2BDBF72F00A2E626 /* NutriSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AFD018F92BDBF98C00A2E626 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		AFD018FB2BDF3F8100A2E626 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieProgressCard.swift; sourceTree = "<group>"; };
+		AFD019002BDF7E4A00A2E626 /* MealCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCard.swift; sourceTree = "<group>"; };
+		AFD019052BDF80EF00A2E626 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,10 +141,29 @@
 		AFD018F82BDBF8E900A2E626 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AFD019022BDF808300A2E626 /* UI */,
+				AFD018FD2BDF7DFF00A2E626 /* Components */,
 				AFD018F92BDBF98C00A2E626 /* SplashView.swift */,
 				AFD018FB2BDF3F8100A2E626 /* MainView.swift */,
+				AFD019052BDF80EF00A2E626 /* OnboardingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AFD018FD2BDF7DFF00A2E626 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AFD019022BDF808300A2E626 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */,
+				AFD019002BDF7E4A00A2E626 /* MealCard.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFD018D12BDBF72E00A2E626 /* ContentView.swift in Sources */,
+				AFD018FF2BDF7E1200A2E626 /* CalorieProgressCard.swift in Sources */,
+				AFD019012BDF7E4A00A2E626 /* MealCard.swift in Sources */,
 				AFD018FC2BDF3F8100A2E626 /* MainView.swift in Sources */,
+				AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */,
 				AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */,
 				AFD018FA2BDBF98C00A2E626 /* SplashView.swift in Sources */,
 			);
