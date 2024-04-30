@@ -22,6 +22,7 @@
 		AFD019182BE08A5000A2E626 /* IntroductionOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019172BE08A5000A2E626 /* IntroductionOnboarding.swift */; };
 		AFD0191A2BE08B0500A2E626 /* UserDataOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019192BE08B0500A2E626 /* UserDataOnboarding.swift */; };
 		AFD0191F2BE08D8800A2E626 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0191E2BE08D8800A2E626 /* Header.swift */; };
+		AFD019252BE0DFA300A2E626 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019242BE0DFA300A2E626 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		AFD019172BE08A5000A2E626 /* IntroductionOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionOnboarding.swift; sourceTree = "<group>"; };
 		AFD019192BE08B0500A2E626 /* UserDataOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataOnboarding.swift; sourceTree = "<group>"; };
 		AFD0191E2BE08D8800A2E626 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		AFD019242BE0DFA300A2E626 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		AFD018CD2BDBF72E00A2E626 /* NutriSnap */ = {
 			isa = PBXGroup;
 			children = (
+				AFD019232BE0DF9900A2E626 /* Model */,
 				AFD0190F2BE0835C00A2E626 /* Controllers */,
 				AFD018F82BDBF8E900A2E626 /* Views */,
 				AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */,
@@ -205,6 +208,14 @@
 				AFD0191E2BE08D8800A2E626 /* Header.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		AFD019232BE0DF9900A2E626 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFD019242BE0DFA300A2E626 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +355,7 @@
 				AFD0191F2BE08D8800A2E626 /* Header.swift in Sources */,
 				AFD0191A2BE08B0500A2E626 /* UserDataOnboarding.swift in Sources */,
 				AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */,
+				AFD019252BE0DFA300A2E626 /* User.swift in Sources */,
 				AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */,
 				AFD019112BE0837400A2E626 /* ViewController.swift in Sources */,
 				AFD018FA2BDBF98C00A2E626 /* SplashView.swift in Sources */,

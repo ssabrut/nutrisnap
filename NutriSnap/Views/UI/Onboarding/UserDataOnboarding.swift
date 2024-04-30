@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-enum Activity: String, CaseIterable, Identifiable {
+enum Activity: String, CaseIterable, Identifiable, Codable {
     case minimal, moderate, active
     var id: Self { self }
 }
 
-enum Goal: String, CaseIterable, Identifiable {
+enum Goal: String, CaseIterable, Identifiable, Codable {
     case loss, maintenance, gain
     var id: Self { self }
 }
 
 struct UserDataOnboarding: View {
     private let headerFontSize: CGFloat = 18
-    @State private var bodyWeight: String = ""
-    @State private var bodyHeight: String = ""
-    @State private var age: String = ""
-    @State private var selectedActivity: Activity = .minimal
-    @State private var selectedGoal: Goal = .loss
+    @Binding var bodyWeight: String
+    @Binding var bodyHeight: String
+    @Binding var age: String
+    @Binding var selectedActivity: Activity
+    @Binding var selectedGoal: Goal
     
     var body: some View {
         Header(firstParagraph: "To tailor our application perfectly", secondParagraph: "to your needs, we'd love to")
@@ -73,6 +73,6 @@ struct UserDataOnboarding: View {
     }
 }
 
-#Preview {
-    UserDataOnboarding()
-}
+//#Preview {
+//    UserDataOnboarding(bodyWeight: "")
+//}
