@@ -8,7 +8,21 @@
 import SwiftUI
 import AVFoundation
 
+struct SheetView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        Button(action: {
+            print("a")
+        }) {
+            Text("Dismiss")
+        }
+    }
+}
+
 struct MainView: View {    
+    @State private var isGoalSheetShow: Bool = false
+    
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
@@ -18,12 +32,14 @@ struct MainView: View {
                         .fontWeight(.bold)
                     Spacer()
                     Button(action: {
-                        print("a")
-                        
+                        isGoalSheetShow = true
                     }) {
                         Text("Edit Goals")
                             .font(.system(size: 12))
                             .fontWeight(.semibold)
+                    }
+                    .sheet(isPresented: $isGoalSheetShow) {
+                        SheetView()
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))

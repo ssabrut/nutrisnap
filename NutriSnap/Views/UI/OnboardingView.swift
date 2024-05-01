@@ -18,6 +18,7 @@ struct OnboardingView: View {
     @State private var age: String = ""
     @State private var selectedActivity: Activity = .minimal
     @State private var selectedGoal: Goal = .loss
+    @State private var isDisabled: Bool = false
     private let encoder: JSONEncoder = JSONEncoder()
 
     var body: some View {
@@ -38,6 +39,7 @@ struct OnboardingView: View {
                 Spacer()
                 Button(action: {
                     if step == 1 {
+//                        isDisabled = true
                         step = 2
                     } else {
                         var user: User {
@@ -48,7 +50,6 @@ struct OnboardingView: View {
                             let data = try encoder.encode(user)
                             let json = String(data: data, encoding: String.Encoding.utf8)
                             UserDefaults.standard.set(json, forKey: "user")
-                            print(UserDefaults.standard.string(forKey: "user")!)
                         } catch {
                             print("Error encoding user: \(error)")
                         }
@@ -62,16 +63,19 @@ struct OnboardingView: View {
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                             .padding(.vertical, 16)
                     } else {
-                        Text("Get Started")
-                            .font(.system(size: headerFontSize))
-                            .bold()
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                            .padding(.vertical, 16)
+                        NavigationLink(destination: MainView()) {
+                            Text("Get Started")
+                                .font(.system(size: headerFontSize))
+                                .bold()
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                                .padding(.vertical, 16)
+                        }
                     }
                 }
-                .background(Color("BGNavyBlue"))
+                .background(isDisabled ? .gray : Color("BGNavyBlue"))
                 .cornerRadius(cornerRadius)
+//                .disabled(isDisabled)
             }
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
         }
