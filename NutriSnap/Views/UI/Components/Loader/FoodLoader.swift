@@ -45,7 +45,6 @@ struct FoodLoader: View {
             }
             .foregroundColor(.white)
         }
-        .background(.red)
         .ignoresSafeArea()
     }
 }

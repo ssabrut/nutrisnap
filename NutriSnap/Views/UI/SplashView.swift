@@ -13,6 +13,15 @@ struct SplashView: View {
     
     var body: some View {
         ZStack {
+            RadialGradient(
+                gradient: Gradient(colors: [.white, Color("BGCyan")]),
+                center: .center,
+                startRadius: 0,
+                endRadius: 1024
+            )
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+            .ignoresSafeArea()
+
             if self.isActive {
                 if self.isDataAvailable {
                     MainView()
