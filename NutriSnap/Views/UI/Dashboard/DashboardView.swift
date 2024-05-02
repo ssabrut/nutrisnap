@@ -8,43 +8,79 @@
 import SwiftUI
 
 struct SheetView: View {
+    private let headerFontSize: CGFloat = 18
+    private let cornerRadius: CGFloat = 12
     @Environment(\.dismiss) var dismiss
-    @State var bodyWeight: String = ""
-    @State var bodyHeight: String = ""
-    @State var age: String = ""
-    @State var selectedActivity: Activity = .minimal
-    @State var selectedGoal: Goal = .loss
-    
-    init() {
-        let decoder: JSONDecoder = JSONDecoder()
-        let data = UserDefaults.standard.string(forKey: "user")!
-        
-        do {
-            let user = try decoder.decode(User.self, from: Data(data.utf8))
-            self.bodyWeight = String(user.bodyWeight)
-            self.bodyHeight = String(user.bodyHeight)
-            self.age = String(user.age)
-            self.selectedActivity = user.activity
-            self.selectedGoal = user.goal
-        } catch {
-            print("Error decoding user \(error)")
-        }
-    }
+    @State private var bodyWeight: String = ""
+    @State private var bodyHeight: String = ""
+    @State private var age: String = ""
+    @State private var selectedActivity: Activity = .minimal
+    @State private var selectedGoal: Goal = .loss
+    @State private var isLoading: Bool = true
     
     var body: some View {
-        Button(action: {
-            dismiss()
-        }) {
-            Text("Dismiss")
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Text("Dismiss")
+                }
+            }
+            
+            if !self.isLoading {
+                UserDataForm(
+                    bodyWeight: $bodyWeight,
+                    bodyHeight: $bodyHeight,
+                    age: $age,
+                    selectedActivity: $selectedActivity,
+                    selectedGoal: $selectedGoal
+                )
+                
+                Button(action: {
+                    var user: User {
+                        User(bodyHeight: bodyHeight, bodyWeight: bodyWeight, age: age, activity: selectedActivity, goal: selectedGoal)
+                    }
+                    
+                    do {
+                        let encoder: JSONEncoder = JSONEncoder()
+                        let data = try encoder.encode(user)
+                        let json = String(data: data, encoding: String.Encoding.utf8)!
+                        UserDefaults.standard.set(json, forKey: "user")
+                        dismiss()
+                    } catch {
+                        print("Error encoding user: \(error)")
+                    }
+                }) {
+                    Text("Update")
+                        .font(.system(size: headerFontSize))
+                        .bold()
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                        .padding(.vertical, 16)
+                }
+                .background(Color("BGNavyBlue"))
+                .cornerRadius(cornerRadius)
+            }
         }
-        
-        UserDataForm(
-            bodyWeight: $bodyWeight,
-            bodyHeight: $bodyHeight,
-            age: $age,
-            selectedActivity: $selectedActivity,
-            selectedGoal: $selectedGoal
-        )
+        .padding(24)
+        .background(Color("BGGray"))
+        .task {
+            let decoder: JSONDecoder = JSONDecoder()
+            let data = UserDefaults.standard.string(forKey: "user")!
+            
+            do {
+                let user = try decoder.decode(User.self, from: Data(data.utf8))
+                self.bodyWeight = user.bodyWeight
+                self.bodyHeight = user.bodyHeight
+                self.age = user.age
+                self.selectedActivity = user.activity
+                self.selectedGoal = user.goal
+                self.isLoading = false
+            } catch {
+                print("Error decoding user \(error)")
+            }
+        }
     }
 }
 
@@ -109,10 +145,12 @@ struct DashboardView: View {
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
             }
-            .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
-        .background(Color("BGGray"))
+            .padding(.horizontal, 24)
+            .background(Color("BGGray"))
+            .navigationTitle("Sapiman")
+            .navigationBarTitleDisplayMode(.large)
+            .navigationBarBackButtonHidden()
         }
-        .navigationBarBackButtonHidden()
     }
 }
 

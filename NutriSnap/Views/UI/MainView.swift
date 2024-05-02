@@ -13,7 +13,7 @@ struct MainView: View {
         TabView {
             DashboardView()
                 .tabItem {
-                    Text("Dashboard")
+                    Label("Dashboard", systemImage: "square.grid.3x3")
                 }
         }
     }
