@@ -15,6 +15,14 @@ struct MainView: View {
                 .tabItem {
                     Label("Dashboard", systemImage: "square.grid.3x3")
                 }
+            HistoryView()
+                .tabItem {
+                    Label("History", systemImage: "clock")
+                }
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person")
+                }
         }
     }
 }
