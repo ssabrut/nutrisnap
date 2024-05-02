@@ -18,9 +18,8 @@ struct OnboardingView: View {
     @State private var age: String = ""
     @State private var selectedActivity: Activity = .minimal
     @State private var selectedGoal: Goal = .loss
-    @State private var isDisabled: Bool = false
-    private let encoder: JSONEncoder = JSONEncoder()
-
+    @State private var isDataAvailable: Bool = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -38,50 +37,44 @@ struct OnboardingView: View {
                     }
                     
                     Spacer()
+                    
+                    NavigationLink(destination: MainView(), isActive: $isDataAvailable) {
+                        EmptyView()
+                    }
+                    
                     Button(action: {
                         if step == 1 {
-    //                        isDisabled = true
                             step = 2
                         } else {
                             var user: User {
-                                User(bodyHeight: Int(bodyHeight) ?? 0, bodyWeight: Int(bodyWeight) ?? 0, age: Int(age) ?? 0, activity: selectedActivity, goal: selectedGoal)
+                                User(bodyHeight: bodyHeight, bodyWeight: bodyWeight, age: age, activity: selectedActivity, goal: selectedGoal)
                             }
                             
                             do {
+                                let encoder: JSONEncoder = JSONEncoder()
                                 let data = try encoder.encode(user)
-                                let json = String(data: data, encoding: String.Encoding.utf8)
+                                let json = String(data: data, encoding: String.Encoding.utf8)!
                                 UserDefaults.standard.set(json, forKey: "user")
+                                isDataAvailable = true
                             } catch {
                                 print("Error encoding user: \(error)")
                             }
                         }
                     }) {
-                        if step == 1 {
-                            Text("Continue")
-                                .font(.system(size: headerFontSize))
-                                .bold()
-                                .foregroundStyle(.white)
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                                .padding(.vertical, 16)
-                        } else {
-                            NavigationLink(destination: MainView()) {
-                                Text("Get Started")
-                                    .font(.system(size: headerFontSize))
-                                    .bold()
-                                    .foregroundStyle(.white)
-                                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                                    .padding(.vertical, 16)
-                            }
-                        }
+                        Text(step == 1 ? "Continue" : "Get Started")
+                            .font(.system(size: headerFontSize))
+                            .bold()
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                            .padding(.vertical, 16)
                     }
-                    .background(isDisabled ? .gray : Color("BGNavyBlue"))
+                    .background(Color("BGNavyBlue"))
                     .cornerRadius(cornerRadius)
-    //                .disabled(isDisabled)
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
             }
             .padding(containerPadding)
-        .background(Color("BGGray"))
+            .background(Color("BGGray"))
         }
     }
 }

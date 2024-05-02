@@ -9,11 +9,16 @@ import SwiftUI
 
 struct SplashView: View {
     @State var isActive: Bool = false
+    @State var isDataAvailable: Bool = false
     
     var body: some View {
         ZStack {
             if self.isActive {
-                OnboardingView()
+                if self.isDataAvailable {
+                    MainView()
+                } else {
+                    OnboardingView()
+                }
             } else {
                 Image("Logo")
             }
@@ -21,6 +26,9 @@ struct SplashView: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 withAnimation {
+                    if ((UserDefaults.standard.string(forKey: "user")?.isEmpty) == false) {
+                        self.isDataAvailable = true
+                    }
                     self.isActive = true
                 }
             }
