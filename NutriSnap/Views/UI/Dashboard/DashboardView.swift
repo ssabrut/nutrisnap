@@ -20,12 +20,10 @@ struct SheetView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .top) {
-                Button(action: {
-                    dismiss()
-                }) {
-                    Text("Dismiss")
-                }
+            Button(action: {
+                dismiss()
+            }) {
+                Text("Dismiss")
             }
             
             if !self.isLoading {
@@ -147,8 +145,8 @@ struct DashboardView: View {
             }
             .padding(.horizontal, 24)
             .background(Color("BGGray"))
-            .navigationTitle("Sapiman")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("Meal History")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
         }
     }

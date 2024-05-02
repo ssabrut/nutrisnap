@@ -9,7 +9,35 @@ import SwiftUI
 
 struct HistoryView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack {
+                VStack(alignment: .leading) {
+                    CalorieProgressCard()
+                    HStack {
+                        Text("Meals")
+                            .font(.system(size: 18))
+                            .bold()
+                        Spacer()
+                        Button(action: {
+                            print("a")
+                        }) {
+                            Text("+ Add Meal")
+                                .font(.system(size: 12))
+                                .bold()
+                        }
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+                    MealCard()
+                    Spacer()
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+            }
+            .padding(.horizontal, 24)
+            .background(Color("BGGray"))
+            .navigationTitle("NutriSnap")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden()
+        }
     }
 }
 

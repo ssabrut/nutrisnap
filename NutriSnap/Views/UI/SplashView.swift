@@ -21,6 +21,8 @@ struct SplashView: View {
                 }
             } else {
                 Image("Logo")
+                    .resizable()
+                    .frame(width: 256, height: 256)
             }
         }
         .onAppear {

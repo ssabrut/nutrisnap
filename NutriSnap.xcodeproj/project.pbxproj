@@ -10,6 +10,7 @@
 		AF3EF8E42BE32D9200DCA462 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3EF8E32BE32D9200DCA462 /* User.swift */; };
 		AF3EF8E72BE3475A00DCA462 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3EF8E62BE3475A00DCA462 /* HistoryView.swift */; };
 		AF3EF8EA2BE3479F00DCA462 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3EF8E92BE3479F00DCA462 /* ProfileView.swift */; };
+		AF3EF8EF2BE34B2000DCA462 /* FoodLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3EF8EE2BE34B2000DCA462 /* FoodLoader.swift */; };
 		AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */; };
 		AFD018D32BDBF72F00A2E626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFD018D22BDBF72F00A2E626 /* Assets.xcassets */; };
 		AFD018D62BDBF72F00A2E626 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFD018D52BDBF72F00A2E626 /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		AF3EF8E32BE32D9200DCA462 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AF3EF8E62BE3475A00DCA462 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		AF3EF8E92BE3479F00DCA462 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AF3EF8EE2BE34B2000DCA462 /* FoodLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLoader.swift; sourceTree = "<group>"; };
 		AFD018CB2BDBF72E00A2E626 /* NutriSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSnapApp.swift; sourceTree = "<group>"; };
 		AFD018D22BDBF72F00A2E626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 				AF3EF8E92BE3479F00DCA462 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		AF3EF8EB2BE34AC000DCA462 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				AF3EF8EE2BE34B2000DCA462 /* FoodLoader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		AFD018C22BDBF72E00A2E626 = {
@@ -224,6 +234,7 @@
 		AFD019162BE0848E00A2E626 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AF3EF8EB2BE34AC000DCA462 /* Loader */,
 				AFD019292BE326E900A2E626 /* Button */,
 				AFD019262BE322D500A2E626 /* Form */,
 				AFD019072BE07EEA00A2E626 /* Card */,
@@ -410,6 +421,7 @@
 				AF3EF8EA2BE3479F00DCA462 /* ProfileView.swift in Sources */,
 				AF3EF8E72BE3475A00DCA462 /* HistoryView.swift in Sources */,
 				AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */,
+				AF3EF8EF2BE34B2000DCA462 /* FoodLoader.swift in Sources */,
 				AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */,
 				AFD019112BE0837400A2E626 /* ViewController.swift in Sources */,
 				AFD019282BE322E700A2E626 /* UserDataForm.swift in Sources */,
