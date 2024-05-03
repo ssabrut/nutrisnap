@@ -26,18 +26,33 @@ struct UserDataForm: View {
     
     var body: some View {
         Form {
-            TextField("Body Weight (kg)", text: $bodyWeight)
-                .keyboardType(.numberPad)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .padding(.vertical, 6)
-            TextField("Body Height (cm)", text: $bodyHeight)
-                .keyboardType(.numberPad)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .padding(.vertical, 6)
-            TextField("Age", text: $age)
-                .keyboardType(.numberPad)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .padding(.vertical, 6)
+            HStack {
+                Text("Body Height")
+                Spacer()
+                TextField("kg", text: $bodyWeight)
+                    .keyboardType(.numberPad)
+                    .frame(maxWidth: 32)
+                    .padding(.vertical, 6)
+                    .multilineTextAlignment(.leading)
+            }
+            HStack {
+                Text("Body Height")
+                Spacer()
+                TextField("cm", text: $bodyHeight)
+                    .keyboardType(.numberPad)
+                    .frame(maxWidth: 32)
+                    .padding(.vertical, 6)
+                    .multilineTextAlignment(.leading)
+            }
+            HStack {
+                Text("Age")
+                Spacer()
+                TextField("Age", text: $age)
+                    .keyboardType(.numberPad)
+                    .frame(maxWidth: 32)
+                    .padding(.vertical, 6)
+                    .multilineTextAlignment(.leading)
+            }
             List {
                 HStack {
                     Text("Activity")

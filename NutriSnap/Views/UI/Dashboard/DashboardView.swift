@@ -94,16 +94,6 @@ struct DashboardView: View {
                             .font(.system(size: 18))
                             .fontWeight(.bold)
                         Spacer()
-                        Button(action: {
-                            isGoalSheetShow = true
-                        }) {
-                            Text("Edit Goals")
-                                .font(.system(size: 12))
-                                .fontWeight(.semibold)
-                        }
-                        .sheet(isPresented: $isGoalSheetShow) {
-                            SheetView()
-                        }
                     }
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                     ZStack(alignment: .leading) {
@@ -125,13 +115,11 @@ struct DashboardView: View {
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                     CalorieProgressCard()
                     HStack {
-                        Text("Recent Meals")
+                        Text("Meals")
                             .font(.system(size: 18))
                             .bold()
                         Spacer()
-                        Button(action: {
-                            print("a")
-                        }) {
+                        NavigationLink(destination: AddMealView()) {
                             Text("+ Add Meal")
                                 .font(.system(size: 12))
                                 .bold()
@@ -145,7 +133,7 @@ struct DashboardView: View {
             }
             .padding(.horizontal, 24)
             .background(Color("BGGray"))
-            .navigationTitle("Meal History")
+            .navigationTitle("NutriSnap")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
         }

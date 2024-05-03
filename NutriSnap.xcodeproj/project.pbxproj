@@ -11,6 +11,8 @@
 		AF3EF8E72BE3475A00DCA462 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3EF8E62BE3475A00DCA462 /* HistoryView.swift */; };
 		AF3EF8EA2BE3479F00DCA462 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3EF8E92BE3479F00DCA462 /* ProfileView.swift */; };
 		AF3EF8EF2BE34B2000DCA462 /* FoodLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3EF8EE2BE34B2000DCA462 /* FoodLoader.swift */; };
+		AF877AB52BE3686B00C257FD /* CalculateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF877AB42BE3686B00C257FD /* CalculateView.swift */; };
+		AF877AB82BE36E3A00C257FD /* AddMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF877AB72BE36E3A00C257FD /* AddMealView.swift */; };
 		AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */; };
 		AFD018D32BDBF72F00A2E626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFD018D22BDBF72F00A2E626 /* Assets.xcassets */; };
 		AFD018D62BDBF72F00A2E626 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFD018D52BDBF72F00A2E626 /* Preview Assets.xcassets */; };
@@ -22,7 +24,6 @@
 		AFD018FF2BDF7E1200A2E626 /* CalorieProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */; };
 		AFD019012BDF7E4A00A2E626 /* MealCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019002BDF7E4A00A2E626 /* MealCard.swift */; };
 		AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019052BDF80EF00A2E626 /* OnboardingView.swift */; };
-		AFD019112BE0837400A2E626 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019102BE0837400A2E626 /* ViewController.swift */; };
 		AFD019182BE08A5000A2E626 /* IntroductionOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019172BE08A5000A2E626 /* IntroductionOnboarding.swift */; };
 		AFD0191A2BE08B0500A2E626 /* UserDataOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019192BE08B0500A2E626 /* UserDataOnboarding.swift */; };
 		AFD0191F2BE08D8800A2E626 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0191E2BE08D8800A2E626 /* Header.swift */; };
@@ -52,6 +53,8 @@
 		AF3EF8E62BE3475A00DCA462 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		AF3EF8E92BE3479F00DCA462 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AF3EF8EE2BE34B2000DCA462 /* FoodLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLoader.swift; sourceTree = "<group>"; };
+		AF877AB42BE3686B00C257FD /* CalculateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateView.swift; sourceTree = "<group>"; };
+		AF877AB72BE36E3A00C257FD /* AddMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealView.swift; sourceTree = "<group>"; };
 		AFD018CB2BDBF72E00A2E626 /* NutriSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSnapApp.swift; sourceTree = "<group>"; };
 		AFD018D22BDBF72F00A2E626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieProgressCard.swift; sourceTree = "<group>"; };
 		AFD019002BDF7E4A00A2E626 /* MealCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCard.swift; sourceTree = "<group>"; };
 		AFD019052BDF80EF00A2E626 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		AFD019102BE0837400A2E626 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AFD019172BE08A5000A2E626 /* IntroductionOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionOnboarding.swift; sourceTree = "<group>"; };
 		AFD019192BE08B0500A2E626 /* UserDataOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataOnboarding.swift; sourceTree = "<group>"; };
 		AFD0191E2BE08D8800A2E626 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 			path = Loader;
 			sourceTree = "<group>";
 		};
+		AF877AB62BE36E1800C257FD /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				AF877AB72BE36E3A00C257FD /* AddMealView.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
 		AFD018C22BDBF72E00A2E626 = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				AFD019312BE32D0000A2E626 /* Model */,
-				AFD0190F2BE0835C00A2E626 /* Controllers */,
 				AFD018F82BDBF8E900A2E626 /* Views */,
 				AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */,
 				AFD018D22BDBF72F00A2E626 /* Assets.xcassets */,
@@ -192,6 +201,7 @@
 		AFD019022BDF808300A2E626 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AF877AB62BE36E1800C257FD /* Meal */,
 				AF3EF8E82BE3479700DCA462 /* Profile */,
 				AF3EF8E52BE3475000DCA462 /* History */,
 				AFD0192A2BE3276500A2E626 /* Dashboard */,
@@ -200,6 +210,7 @@
 				AFD018F92BDBF98C00A2E626 /* SplashView.swift */,
 				AFD018FB2BDF3F8100A2E626 /* MainView.swift */,
 				AFD019052BDF80EF00A2E626 /* OnboardingView.swift */,
+				AF877AB42BE3686B00C257FD /* CalculateView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -211,14 +222,6 @@
 				AFD019002BDF7E4A00A2E626 /* MealCard.swift */,
 			);
 			path = Card;
-			sourceTree = "<group>";
-		};
-		AFD0190F2BE0835C00A2E626 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				AFD019102BE0837400A2E626 /* ViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		AFD019152BE0848400A2E626 /* Onboarding */ = {
@@ -235,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				AF3EF8EB2BE34AC000DCA462 /* Loader */,
-				AFD019292BE326E900A2E626 /* Button */,
 				AFD019262BE322D500A2E626 /* Form */,
 				AFD019072BE07EEA00A2E626 /* Card */,
 			);
@@ -256,13 +258,6 @@
 				AFD019272BE322E700A2E626 /* UserDataForm.swift */,
 			);
 			path = Form;
-			sourceTree = "<group>";
-		};
-		AFD019292BE326E900A2E626 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Button;
 			sourceTree = "<group>";
 		};
 		AFD0192A2BE3276500A2E626 /* Dashboard */ = {
@@ -415,6 +410,7 @@
 				AFD018FF2BDF7E1200A2E626 /* CalorieProgressCard.swift in Sources */,
 				AFD019012BDF7E4A00A2E626 /* MealCard.swift in Sources */,
 				AFD018FC2BDF3F8100A2E626 /* MainView.swift in Sources */,
+				AF877AB52BE3686B00C257FD /* CalculateView.swift in Sources */,
 				AFD019182BE08A5000A2E626 /* IntroductionOnboarding.swift in Sources */,
 				AFD0191F2BE08D8800A2E626 /* Header.swift in Sources */,
 				AFD0191A2BE08B0500A2E626 /* UserDataOnboarding.swift in Sources */,
@@ -423,8 +419,8 @@
 				AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */,
 				AF3EF8EF2BE34B2000DCA462 /* FoodLoader.swift in Sources */,
 				AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */,
-				AFD019112BE0837400A2E626 /* ViewController.swift in Sources */,
 				AFD019282BE322E700A2E626 /* UserDataForm.swift in Sources */,
+				AF877AB82BE36E3A00C257FD /* AddMealView.swift in Sources */,
 				AFD0192C2BE3276E00A2E626 /* DashboardView.swift in Sources */,
 				AFD018FA2BDBF98C00A2E626 /* SplashView.swift in Sources */,
 			);
@@ -515,7 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -572,7 +568,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -594,6 +590,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app use camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -630,6 +627,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app use camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

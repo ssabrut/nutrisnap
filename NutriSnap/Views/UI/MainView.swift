@@ -15,15 +15,19 @@ struct MainView: View {
                 .tabItem {
                     Label("Dashboard", systemImage: "square.grid.3x3")
                 }
+                .navigationBarBackButtonHidden()
             HistoryView()
                 .tabItem {
                     Label("History", systemImage: "clock")
                 }
+                .navigationBarBackButtonHidden()
             ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
+                .navigationBarBackButtonHidden()
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

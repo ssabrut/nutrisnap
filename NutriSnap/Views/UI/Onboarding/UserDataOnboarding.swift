@@ -20,8 +20,6 @@ struct UserDataOnboarding: View {
         Text("learn a bit more about you first...")
             .font(.system(size: headerFontSize))
             .bold()
-            .padding(.bottom)
-        Spacer()
         UserDataForm(
             bodyWeight: $bodyWeight,
             bodyHeight: $bodyHeight,

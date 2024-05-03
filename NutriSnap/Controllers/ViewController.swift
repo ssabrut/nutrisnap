@@ -5,120 +5,75 @@
 //  Created by Michael Eko on 30/04/24.
 //
 
-import UIKit
 import AVFoundation
-import Vision
+import UIKit
+import SwiftUI
 
-class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+class ViewController: UIViewController {
+    private var permissionGranted: Bool = false
     
-    var bufferSize: CGSize = .zero
-    var rootLayer: CALayer! = nil
+    private let captureSession = AVCaptureSession()
+    private let sessionQueue = DispatchQueue(label: "sessionQueue")
     
-    @IBOutlet weak private var previewView: UIView!
-    private let session = AVCaptureSession()
-    private var previewLayer: AVCaptureVideoPreviewLayer! = nil
-    private let videoDataOutput = AVCaptureVideoDataOutput()
-    
-    private let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
-    
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // to be implemented in the subclass
-    }
+    private var previewLayer = AVCaptureVideoPreviewLayer()
+    var screenRect: CGRect! = nil
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        setupAVCapture()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func setupAVCapture() {
-        var deviceInput: AVCaptureDeviceInput!
+        checkPermission()
         
-        // Select a video device, make an input
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
-        do {
-            deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
-        } catch {
-            print("Could not create video device input: \(error)")
-            return
+        sessionQueue.async { [unowned self] in
+            guard permissionGranted else { return }
+            self.setupCaptureSession()
+            self.captureSession.startRunning()
         }
-        
-        session.beginConfiguration()
-        session.sessionPreset = .vga640x480 // Model image size is smaller.
-        
-        // Add a video input
-        guard session.canAddInput(deviceInput) else {
-            print("Could not add video device input to the session")
-            session.commitConfiguration()
-            return
-        }
-        session.addInput(deviceInput)
-        if session.canAddOutput(videoDataOutput) {
-            session.addOutput(videoDataOutput)
-            // Add a video data output
-            videoDataOutput.alwaysDiscardsLateVideoFrames = true
-            videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
-            videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
-        } else {
-            print("Could not add video data output to the session")
-            session.commitConfiguration()
-            return
-        }
-        let captureConnection = videoDataOutput.connection(with: .video)
-        // Always process the frames
-        captureConnection?.isEnabled = true
-        do {
-            try  videoDevice!.lockForConfiguration()
-            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
-            bufferSize.width = CGFloat(dimensions.width)
-            bufferSize.height = CGFloat(dimensions.height)
-            videoDevice!.unlockForConfiguration()
-        } catch {
-            print(error)
-        }
-        session.commitConfiguration()
-        previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        rootLayer = previewView.layer
-        previewLayer.frame = rootLayer.bounds
-        rootLayer.addSublayer(previewLayer)
     }
     
-    func startCaptureSession() {
-        session.startRunning()
-    }
-    
-    // Clean up capture setup
-    func teardownAVCapture() {
-        previewLayer.removeFromSuperlayer()
-        previewLayer = nil
-    }
-    
-    func captureOutput(_ captureOutput: AVCaptureOutput, didDrop didDropSampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // print("frame dropped")
-    }
-    
-    public func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
-        let curDeviceOrientation = UIDevice.current.orientation
-        let exifOrientation: CGImagePropertyOrientation
-        
-        switch curDeviceOrientation {
-        case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
-            exifOrientation = .left
-        case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
-            exifOrientation = .upMirrored
-        case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
-            exifOrientation = .down
-        case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
-            exifOrientation = .up
+    func checkPermission() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            permissionGranted = true
+        case .notDetermined:
+            requestPermission()
         default:
-            exifOrientation = .up
+            permissionGranted = false
         }
-        return exifOrientation
+    }
+    
+    func requestPermission() {
+        sessionQueue.suspend()
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { [unowned self] granted in
+            self.permissionGranted = granted
+            self.sessionQueue.resume()
+        })
+    }
+    
+    func setupCaptureSession() {
+        // Access camera
+        guard let videoDevice = AVCaptureDevice.default(.builtInDualWideCamera, for: .video, position: .back) else { return }
+        guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice) else { return }
+        guard captureSession.canAddInput(videoDeviceInput) else { return }
+        captureSession.addInput(videoDeviceInput)
+        
+        // preview layer
+        screenRect = UIScreen.main.bounds
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: screenRect.size.height)
+        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill // Fill screen
+        previewLayer.connection?.videoOrientation = .portrait
+        
+        // Updates to UI must be on the main queue
+        DispatchQueue.main.async { [weak self] in
+            self!.view.layer.addSublayer(self!.previewLayer)
+        }
     }
 }
 
+struct HostedViewController: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        return
+    }
+    
+    func makeUIViewController(context: Context) -> UIViewController {
+        return ViewController()
+    }
+}

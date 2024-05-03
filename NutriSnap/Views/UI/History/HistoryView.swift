@@ -18,13 +18,6 @@ struct HistoryView: View {
                             .font(.system(size: 18))
                             .bold()
                         Spacer()
-                        Button(action: {
-                            print("a")
-                        }) {
-                            Text("+ Add Meal")
-                                .font(.system(size: 12))
-                                .bold()
-                        }
                     }
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                     MealCard()
@@ -34,7 +27,7 @@ struct HistoryView: View {
             }
             .padding(.horizontal, 24)
             .background(Color("BGGray"))
-            .navigationTitle("NutriSnap")
+            .navigationTitle("Meal History")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
         }

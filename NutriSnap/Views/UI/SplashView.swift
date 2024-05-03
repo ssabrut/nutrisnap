@@ -17,7 +17,7 @@ struct SplashView: View {
                 gradient: Gradient(colors: [.white, Color("BGCyan")]),
                 center: .center,
                 startRadius: 0,
-                endRadius: 1024
+                endRadius: 256
             )
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
             .ignoresSafeArea()

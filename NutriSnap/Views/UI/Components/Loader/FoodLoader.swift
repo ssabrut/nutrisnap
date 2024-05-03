@@ -11,7 +11,7 @@ struct FoodLoader: View {
     @State private var isAnimating: Bool = false
     @State private var image: Int = 1
     
-    private var foregroundColor: Color = .white
+    private var foregroundColor: Color = Color("TextNavyBlue")
     private var backgroundColor: Color = .pink
     
     var body: some View {
@@ -43,7 +43,7 @@ struct FoodLoader: View {
                 }
                 self.isAnimating = true
             }
-            .foregroundColor(.white)
+            .foregroundColor(foregroundColor)
         }
         .ignoresSafeArea()
     }

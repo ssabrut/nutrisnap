@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil,
+            from: nil,
+            for: nil
+        )
+    }
+}
+
 struct OnboardingView: View {
     private let cornerRadius: CGFloat = 12
     private let containerPadding: CGFloat = 24
@@ -38,7 +49,7 @@ struct OnboardingView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: MainView(), isActive: $isDataAvailable) {
+                    NavigationLink(destination: CalculateView(), isActive: $isDataAvailable) {
                         EmptyView()
                     }
                     
@@ -72,9 +83,14 @@ struct OnboardingView: View {
                     .cornerRadius(cornerRadius)
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+                .onTapGesture {
+                    hideKeyboard()
+                }
             }
-            .padding(containerPadding)
+            .padding(.horizontal, containerPadding)
             .background(Color("BGGray"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden()
         }
     }
 }
