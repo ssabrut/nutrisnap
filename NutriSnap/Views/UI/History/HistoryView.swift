@@ -20,7 +20,7 @@ struct HistoryView: View {
                         Spacer()
                     }
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-                    MealCard()
+//                    MealCard()
                     Spacer()
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)

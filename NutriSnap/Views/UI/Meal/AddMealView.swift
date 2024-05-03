@@ -55,7 +55,7 @@ struct AddMealView: View {
     @Binding var popToRoot: Bool
     
     private func saveMeal(mealName: String, selectedImage: UIImage) {
-        var meal = Meal(context: self.viewContext)
+        let meal = Meal(context: self.viewContext)
         meal.id = UUID()
         meal.name = mealName
         meal.image = selectedImage.jpegData(compressionQuality: 1.0)

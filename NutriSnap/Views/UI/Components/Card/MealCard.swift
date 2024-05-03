@@ -11,19 +11,21 @@ struct MealCard: View {
     let imageSize: CGFloat = 64
     let cardTitleSize: CGFloat = 16
     let cardBodySize: CGFloat = 12
+    var mealName: String
+    var image: Data
     
     var body: some View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 12)
                 .fill(.white)
             HStack{
-                Image("OnboardingImage")
+                Image(uiImage: UIImage(data: image)!)
                     .resizable()
                     .frame(width: imageSize, height: imageSize)
                     .cornerRadius(8)
                     .padding(.trailing, 8)
                 VStack(alignment: .leading) {
-                    Text("Nasi Ayam")
+                    Text(mealName)
                         .font(.system(size: cardTitleSize))
                         .bold()
                         .padding(.bottom, 2)
@@ -39,6 +41,6 @@ struct MealCard: View {
     }
 }
 
-#Preview {
-    MealCard()
-}
+//#Preview {
+//    MealCard()
+//}

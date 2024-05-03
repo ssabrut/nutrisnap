@@ -9,6 +9,10 @@ import SwiftUI
 import AVFoundation
 
 struct MainView: View {    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
+    }
+    
     var body: some View {
         TabView {
             DashboardView()

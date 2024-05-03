@@ -89,50 +89,55 @@ struct SheetView: View {
 struct DashboardView: View {
     @State private var isGoalSheetShow: Bool = false
     @State private var isAddData: Bool = false
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Meal.created_at, ascending: false)]) private var meals: FetchedResults<Meal>
     
     var body: some View {
         NavigationView {
             ZStack {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Today")
-                            .font(.system(size: 18))
-                            .fontWeight(.bold)
-                        Spacer()
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-                    ZStack(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(.white)
-                        VStack(alignment: .leading) {
-                            Text("Calories Intake")
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("Today")
+                                .font(.system(size: 18))
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(.white)
+                            VStack(alignment: .leading) {
+                                Text("Calories Intake")
+                                    .font(.system(size: 18))
+                                    .bold()
+                                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
+                                Text("Remaining = Goal - Food")
+                                    .font(.system(size: 12))
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.gray)
+                            }
+                            .padding(16)
+                        }
+                        .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+                        CalorieProgressCard()
+                        HStack {
+                            Text("Meals")
                                 .font(.system(size: 18))
                                 .bold()
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
-                            Text("Remaining = Goal - Food")
-                                .font(.system(size: 12))
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.gray)
+                            Spacer()
+                            NavigationLink(destination: AddMealView(popToRoot: $isAddData), isActive: $isAddData) {
+                                Text("+ Add Meal")
+                                    .font(.system(size: 12))
+                                    .bold()
+                            }
                         }
-                        .padding(16)
-                    }
-                    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-                    CalorieProgressCard()
-                    HStack {
-                        Text("Meals")
-                            .font(.system(size: 18))
-                            .bold()
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+                        ForEach(meals, id: \.self) { meal in
+                            MealCard(mealName: meal.name!, image: meal.image!)
+                        }
                         Spacer()
-                        NavigationLink(destination: AddMealView(popToRoot: $isAddData), isActive: $isAddData) {
-                            Text("+ Add Meal")
-                                .font(.system(size: 12))
-                                .bold()
-                        }
                     }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-                    MealCard()
-                    Spacer()
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
             }
