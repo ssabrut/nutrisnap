@@ -56,11 +56,35 @@ struct SheetView: View {
     }
 }
 
+struct ProgressBarHeightPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
+
 struct DashboardView: View {
     @State private var isGoalSheetShow: Bool = false
     @State private var isAddData: Bool = false
     @State private var user: User?
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Meal.created_at, ascending: false)]) private var meals: FetchedResults<Meal>
+    
+    private var totalCaloriesForToday: Int {
+        let today = Calendar.current.startOfDay(for: Date())
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        
+        let mealsForToday = meals.filter { meal in
+            if let mealDate = meal.created_at {
+                return mealDate >= today && mealDate < tomorrow
+            }
+            return false
+        }
+        
+        return mealsForToday.reduce(0) { total, meal in
+            total + (Int(meal.calorie ?? "0") ?? 0)
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -86,21 +110,22 @@ struct DashboardView: View {
                                     .font(.system(size: 12))
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.gray)
-                                ProgressView(value: 20, total: Float(user?.upperThresholdCalorie ?? 0), label: {
+                                ProgressView(value: Float(totalCaloriesForToday), total: Float(user?.upperThresholdCalorie ?? 0), label: {
                                     EmptyView()
                                 }, currentValueLabel: {
                                     HStack(alignment: .bottom) {
+                                        Text(String(totalCaloriesForToday))
                                         Spacer()
                                         Text(String(user?.upperThresholdCalorie ?? 0))
                                     }
                                 })
-                                    .padding(.top, 24)
+                                .padding(.top, 24)
                             }
                             .padding(16)
                         }
                         .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-                        CalorieProgressCard(user: $user)
+                        CalorieProgressCard(user: $user, calorieLogged: totalCaloriesForToday)
                         HStack {
                             Text("Meals")
                                 .font(.system(size: 18))
@@ -113,13 +138,23 @@ struct DashboardView: View {
                             }
                         }
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-                        ForEach(meals, id: \.self) { meal in
-                            NavigationLink {
-                                DetailMealView(meal: meal)
-                            } label: {
-                                MealCard(mealName: meal.name!, image: meal.image!, calorie: meal.calorie ?? "")
+                        if meals.count > 0 {
+                            ForEach(meals, id: \.self) { meal in
+                                NavigationLink {
+                                    DetailMealView(meal: meal)
+                                } label: {
+                                    MealCard(mealName: meal.name!, image: meal.image!, calorie: meal.calorie ?? "")
+                                }
+                            }
+                        } else {
+                            HStack(alignment: .center) {
+                                Text("Start tracking your meals! You haven't logged any yet.")
+                                    .font(.system(size: 12))
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.gray)
                             }
                         }
+                        
                         Spacer()
                     }
                 }
@@ -134,6 +169,7 @@ struct DashboardView: View {
         .task {
             let decoder: JSONDecoder = JSONDecoder()
             let data = UserDefaults.standard.string(forKey: "user")!
+            print(totalCaloriesForToday)
 
             do {
                 user = try decoder.decode(User.self, from: Data(data.utf8))

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalorieProgressCard: View {
     @Binding var user: User?
+    var calorieLogged: Int
     
     var body: some View {
         ZStack {
@@ -36,7 +37,7 @@ struct CalorieProgressCard: View {
                             .bold()
                     }
                     VStack {
-                        Text("1600")
+                        Text(String(calorieLogged))
                             .font(.system(size: 15))
                             .bold()
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
@@ -51,9 +52,10 @@ struct CalorieProgressCard: View {
                             .bold()
                     }
                     VStack {
-                        Text("700")
+                        Text(String(Int(user?.upperThresholdCalorie ?? 0) - calorieLogged))
                             .font(.system(size: 15))
                             .bold()
+                            .foregroundStyle(Color("TextOrange"))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
                         Text("Remaining")
                             .font(.system(size: 12))

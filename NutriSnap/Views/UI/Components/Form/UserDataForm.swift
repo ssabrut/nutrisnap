@@ -61,7 +61,7 @@ struct UserDataForm: View {
             }
             List {
                 HStack {
-//                    Text("Gender")
+                    Text("Gender")
                     Spacer()
                     Picker("Gender", selection: $gender) {
                         Text("Male").tag(Gender.male)
@@ -72,7 +72,7 @@ struct UserDataForm: View {
             }
             List {
                 HStack {
-//                    Text("Activity")
+                    Text("Activity")
                     Spacer()
                     Picker("Activity", selection: $selectedActivity) {
                         Text("Minimal (1-2 times a week)").tag(Activity.minimal)
@@ -84,7 +84,7 @@ struct UserDataForm: View {
             }
             List {
                 HStack {
-//                    Text("Goal")
+                    Text("Goal")
                     Spacer()
                     Picker("Goal", selection: $selectedGoal) {
                         Text("Weight Loss").tag(Goal.loss)
