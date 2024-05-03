@@ -89,8 +89,8 @@ struct SheetView: View {
 struct DashboardView: View {
     @State private var isGoalSheetShow: Bool = false
     @State private var isAddData: Bool = false
+    @State private var user: User?
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Meal.created_at, ascending: false)]) private var meals: FetchedResults<Meal>
-    private var user: User?
     
     var body: some View {
         NavigationView {
@@ -116,12 +116,21 @@ struct DashboardView: View {
                                     .font(.system(size: 12))
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.gray)
+                                ProgressView(value: 20, total: Float(user?.upperThresholdCalorie ?? 0), label: {
+                                    EmptyView()
+                                }, currentValueLabel: {
+                                    HStack(alignment: .bottom) {
+                                        Spacer()
+                                        Text(String(user?.upperThresholdCalorie ?? 0))
+                                    }
+                                })
+                                    .padding(.top, 24)
                             }
                             .padding(16)
                         }
                         .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-                        CalorieProgressCard()
+                        CalorieProgressCard(user: $user)
                         HStack {
                             Text("Meals")
                                 .font(.system(size: 18))
@@ -151,6 +160,16 @@ struct DashboardView: View {
             .navigationTitle("NutriSnap")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden()
+        }
+        .task {
+            let decoder: JSONDecoder = JSONDecoder()
+            let data = UserDefaults.standard.string(forKey: "user")!
+
+            do {
+                user = try decoder.decode(User.self, from: Data(data.utf8))
+            } catch {
+                print("Error decoding user \(error)")
+            }
         }
     }
 }

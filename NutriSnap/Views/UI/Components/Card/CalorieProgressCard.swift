@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CalorieProgressCard: View {
+    @Binding var user: User?
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
@@ -19,7 +21,7 @@ struct CalorieProgressCard: View {
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                 HStack(spacing: 24) {
                     VStack {
-                        Text("2500")
+                        Text(String(user?.upperThresholdCalorie ?? 0))
                             .font(.system(size: 15))
                             .bold()
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
@@ -68,6 +70,6 @@ struct CalorieProgressCard: View {
     }
 }
 
-#Preview {
-    CalorieProgressCard()
-}
+//#Preview {
+//    CalorieProgressCard()
+//}

@@ -12,7 +12,7 @@ struct HistoryView: View {
         NavigationView {
             ZStack {
                 VStack(alignment: .leading) {
-                    CalorieProgressCard()
+//                    CalorieProgressCard()
                     HStack {
                         Text("Meals")
                             .font(.system(size: 18))
