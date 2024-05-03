@@ -44,12 +44,30 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
 }
 
 struct AddMealView: View {
+    @EnvironmentObject var manager: DataManager
+    @Environment(\.managedObjectContext) var viewContext
+    
     private let headerFontSize: CGFloat = 18
     private let cornerRadius: CGFloat = 12
     @State private var showCamera = false
     @State private var selectedImage: UIImage?
-    @State private var image: UIImage?
     @State private var mealName: String = ""
+    @Binding var popToRoot: Bool
+    
+    private func saveMeal(mealName: String, selectedImage: UIImage) {
+        var meal = Meal(context: self.viewContext)
+        meal.id = UUID()
+        meal.name = mealName
+        meal.image = selectedImage.jpegData(compressionQuality: 1.0)
+        meal.created_at = Date()
+        
+        do {
+            try self.viewContext.save()
+            self.popToRoot = false
+        } catch {
+            print("Error saving data: \(error.localizedDescription)")
+        }
+    }
     
     var body: some View {
         ScrollView {
@@ -88,8 +106,9 @@ struct AddMealView: View {
                     .background(.white)
                     .cornerRadius(12)
                     .padding(.vertical, 24)
+                    Spacer()
                     Button(action: {
-                        print(mealName)
+                        saveMeal(mealName: mealName, selectedImage: selectedImage!)
                     }) {
                         Text("Add")
                             .font(.system(size: headerFontSize))
@@ -103,6 +122,7 @@ struct AddMealView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(EdgeInsets(top: 24, leading: 24, bottom: 0, trailing: 24))
             .onTapGesture {
                 hideKeyboard()
@@ -114,6 +134,6 @@ struct AddMealView: View {
     }
 }
 
-#Preview {
-    AddMealView()
-}
+//#Preview {
+//    AddMealView(popToRoot: true)
+//}

@@ -88,6 +88,7 @@ struct SheetView: View {
 
 struct DashboardView: View {
     @State private var isGoalSheetShow: Bool = false
+    @State private var isAddData: Bool = false
     
     var body: some View {
         NavigationView {
@@ -123,7 +124,7 @@ struct DashboardView: View {
                             .font(.system(size: 18))
                             .bold()
                         Spacer()
-                        NavigationLink(destination: AddMealView()) {
+                        NavigationLink(destination: AddMealView(popToRoot: $isAddData), isActive: $isAddData) {
                             Text("+ Add Meal")
                                 .font(.system(size: 12))
                                 .bold()
