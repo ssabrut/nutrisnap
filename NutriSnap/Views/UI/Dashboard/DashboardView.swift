@@ -169,7 +169,6 @@ struct DashboardView: View {
         .task {
             let decoder: JSONDecoder = JSONDecoder()
             let data = UserDefaults.standard.string(forKey: "user")!
-            print(totalCaloriesForToday)
 
             do {
                 user = try decoder.decode(User.self, from: Data(data.utf8))
