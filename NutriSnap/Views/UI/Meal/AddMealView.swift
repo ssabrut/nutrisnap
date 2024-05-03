@@ -63,6 +63,7 @@ struct AddMealView: View {
         meal.image = selectedImage.jpegData(compressionQuality: 1.0)
         meal.created_at = Date()
         meal.classes = classifier.imageClass
+        meal.calorie = String(Int.random(in: 100...500))
         
         do {
             try self.viewContext.save()

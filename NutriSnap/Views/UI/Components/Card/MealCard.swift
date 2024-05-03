@@ -13,6 +13,7 @@ struct MealCard: View {
     let cardBodySize: CGFloat = 12
     var mealName: String
     var image: Data
+    var calorie: String
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -29,7 +30,7 @@ struct MealCard: View {
                         .font(.system(size: cardTitleSize))
                         .bold()
                         .padding(.bottom, 2)
-                    Text("1.250 calories")
+                    Text("\(calorie) calories")
                         .font(.system(size: cardBodySize))
                         .bold()
                         .foregroundStyle(Color("TextOrange"))

@@ -18,9 +18,9 @@
 		AF877ACB2BE507FE00C257FD /* Meal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF877AC92BE507FE00C257FD /* Meal+CoreDataProperties.swift */; };
 		AF877ACF2BE5088800C257FD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF877ACE2BE5088800C257FD /* DataManager.swift */; };
 		AF877AEC2BE51BC000C257FD /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF877AEB2BE51BC000C257FD /* Classifier.swift */; };
-		AF877AF02BE51E1600C257FD /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF877AEF2BE51E1600C257FD /* MobileNetV2.mlmodel */; };
 		AF877AF22BE520F700C257FD /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF877AF12BE520F700C257FD /* ImageClassifier.swift */; };
 		AF877AF42BE5233100C257FD /* DetailMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF877AF32BE5233100C257FD /* DetailMealView.swift */; };
+		AF877AF62BE52FD400C257FD /* MobileNetV2.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = AF877AF52BE52FD400C257FD /* MobileNetV2.mlpackage */; };
 		AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */; };
 		AFD018D32BDBF72F00A2E626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFD018D22BDBF72F00A2E626 /* Assets.xcassets */; };
 		AFD018D62BDBF72F00A2E626 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFD018D52BDBF72F00A2E626 /* Preview Assets.xcassets */; };
@@ -68,9 +68,9 @@
 		AF877AC92BE507FE00C257FD /* Meal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AF877ACE2BE5088800C257FD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		AF877AEB2BE51BC000C257FD /* Classifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
-		AF877AEF2BE51E1600C257FD /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNetV2.mlmodel; path = ../../../../Downloads/MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		AF877AF12BE520F700C257FD /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 		AF877AF32BE5233100C257FD /* DetailMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealView.swift; sourceTree = "<group>"; };
+		AF877AF52BE52FD400C257FD /* MobileNetV2.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = MobileNetV2.mlpackage; path = ../../../../Downloads/MobileNetV2.mlpackage; sourceTree = "<group>"; };
 		AFD018CB2BDBF72E00A2E626 /* NutriSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD018CE2BDBF72E00A2E626 /* NutriSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriSnapApp.swift; sourceTree = "<group>"; };
 		AFD018D22BDBF72F00A2E626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 		AFD018CD2BDBF72E00A2E626 /* NutriSnap */ = {
 			isa = PBXGroup;
 			children = (
-				AF877AEF2BE51E1600C257FD /* MobileNetV2.mlmodel */,
+				AF877AF52BE52FD400C257FD /* MobileNetV2.mlpackage */,
 				AF877AEA2BE51BB800C257FD /* CoreML */,
 				AF877ACC2BE5080C00C257FD /* CoreData */,
 				AF877AB92BE4CD4000C257FD /* Schema */,
@@ -455,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3EF8E42BE32D9200DCA462 /* User.swift in Sources */,
+				AF877AF62BE52FD400C257FD /* MobileNetV2.mlpackage in Sources */,
 				AFD018FF2BDF7E1200A2E626 /* CalorieProgressCard.swift in Sources */,
 				AF877AC72BE4CE6800C257FD /* Nutrisnap.xcdatamodeld in Sources */,
 				AFD019012BDF7E4A00A2E626 /* MealCard.swift in Sources */,
@@ -474,7 +475,6 @@
 				AF877AF22BE520F700C257FD /* ImageClassifier.swift in Sources */,
 				AFD019282BE322E700A2E626 /* UserDataForm.swift in Sources */,
 				AF877AB82BE36E3A00C257FD /* AddMealView.swift in Sources */,
-				AF877AF02BE51E1600C257FD /* MobileNetV2.mlmodel in Sources */,
 				AF877AEC2BE51BC000C257FD /* Classifier.swift in Sources */,
 				AFD0192C2BE3276E00A2E626 /* DashboardView.swift in Sources */,
 				AF877ACB2BE507FE00C257FD /* Meal+CoreDataProperties.swift in Sources */,
