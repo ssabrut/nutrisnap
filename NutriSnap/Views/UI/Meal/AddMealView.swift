@@ -82,7 +82,6 @@ struct AddMealView: View {
                             .padding(.trailing, 48)
                         Spacer()
                         TextField("e.g. Nasi Padang", text: $mealName)
-                            .frame(alignment: .trailing)
                             .background(.white)
                     }
                     .padding()
@@ -90,7 +89,7 @@ struct AddMealView: View {
                     .cornerRadius(12)
                     .padding(.vertical, 24)
                     Button(action: {
-                        print("a")
+                        print(mealName)
                     }) {
                         Text("Add")
                             .font(.system(size: headerFontSize))

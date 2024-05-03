@@ -14,6 +14,7 @@ struct SheetView: View {
     @State private var bodyWeight: String = ""
     @State private var bodyHeight: String = ""
     @State private var age: String = ""
+    @State private var gender: Gender = .male
     @State private var selectedActivity: Activity = .minimal
     @State private var selectedGoal: Goal = .loss
     @State private var isLoading: Bool = true
@@ -31,24 +32,26 @@ struct SheetView: View {
                     bodyWeight: $bodyWeight,
                     bodyHeight: $bodyHeight,
                     age: $age,
+                    gender: $gender,
                     selectedActivity: $selectedActivity,
                     selectedGoal: $selectedGoal
                 )
                 
                 Button(action: {
-                    var user: User {
-                        User(bodyHeight: bodyHeight, bodyWeight: bodyWeight, age: age, activity: selectedActivity, goal: selectedGoal)
-                    }
-                    
-                    do {
-                        let encoder: JSONEncoder = JSONEncoder()
-                        let data = try encoder.encode(user)
-                        let json = String(data: data, encoding: String.Encoding.utf8)!
-                        UserDefaults.standard.set(json, forKey: "user")
-                        dismiss()
-                    } catch {
-                        print("Error encoding user: \(error)")
-                    }
+//                    var user: User {
+//                        User(bodyHeight: bodyHeight, bodyWeight: bodyWeight, age: age, activity: selectedActivity, goal: selectedGoal)
+//                    }
+//                    
+//                    do {
+//                        let encoder: JSONEncoder = JSONEncoder()
+//                        let data = try encoder.encode(user)
+//                        let json = String(data: data, encoding: String.Encoding.utf8)!
+//                        UserDefaults.standard.set(json, forKey: "user")
+//                        dismiss()
+//                    } catch {
+//                        print("Error encoding user: \(error)")
+//                    }
+                    print("a")
                 }) {
                     Text("Update")
                         .font(.system(size: headerFontSize))
@@ -64,20 +67,21 @@ struct SheetView: View {
         .padding(24)
         .background(Color("BGGray"))
         .task {
-            let decoder: JSONDecoder = JSONDecoder()
-            let data = UserDefaults.standard.string(forKey: "user")!
-            
-            do {
-                let user = try decoder.decode(User.self, from: Data(data.utf8))
-                self.bodyWeight = user.bodyWeight
-                self.bodyHeight = user.bodyHeight
-                self.age = user.age
-                self.selectedActivity = user.activity
-                self.selectedGoal = user.goal
-                self.isLoading = false
-            } catch {
-                print("Error decoding user \(error)")
-            }
+//            let decoder: JSONDecoder = JSONDecoder()
+//            let data = UserDefaults.standard.string(forKey: "user")!
+//            
+//            do {
+//                let user = try decoder.decode(User.self, from: Data(data.utf8))
+//                self.bodyWeight = user.bodyWeight
+//                self.bodyHeight = user.bodyHeight
+//                self.age = user.age
+//                self.selectedActivity = user.activity
+//                self.selectedGoal = user.goal
+//                self.isLoading = false
+//            } catch {
+//                print("Error decoding user \(error)")
+//            }
+            return
         }
     }
 }

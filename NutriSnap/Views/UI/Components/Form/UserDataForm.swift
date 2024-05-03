@@ -17,17 +17,23 @@ enum Goal: String, CaseIterable, Identifiable, Codable {
     var id: Self { self }
 }
 
+enum Gender: String, CaseIterable, Identifiable, Codable {
+    case male, female
+    var id: Self { self }
+}
+
 struct UserDataForm: View {
     @Binding var bodyWeight: String
     @Binding var bodyHeight: String
     @Binding var age: String
+    @Binding var gender: Gender
     @Binding var selectedActivity: Activity
     @Binding var selectedGoal: Goal
     
     var body: some View {
         Form {
             HStack {
-                Text("Body Height")
+                Text("Body Weight")
                 Spacer()
                 TextField("kg", text: $bodyWeight)
                     .keyboardType(.numberPad)
@@ -55,7 +61,18 @@ struct UserDataForm: View {
             }
             List {
                 HStack {
-                    Text("Activity")
+//                    Text("Gender")
+                    Spacer()
+                    Picker("Gender", selection: $gender) {
+                        Text("Male").tag(Gender.male)
+                        Text("Female").tag(Gender.female)
+                    }
+                    .pickerStyle(.menu)
+                }
+            }
+            List {
+                HStack {
+//                    Text("Activity")
                     Spacer()
                     Picker("Activity", selection: $selectedActivity) {
                         Text("Minimal (1-2 times a week)").tag(Activity.minimal)
@@ -67,7 +84,7 @@ struct UserDataForm: View {
             }
             List {
                 HStack {
-                    Text("Goal")
+//                    Text("Goal")
                     Spacer()
                     Picker("Goal", selection: $selectedGoal) {
                         Text("Weight Loss").tag(Goal.loss)

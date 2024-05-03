@@ -8,9 +8,13 @@
 import Foundation
 
 struct User: Codable {
-    var bodyHeight: String
-    var bodyWeight: String
-    var age: String
+    var bodyHeight: Int
+    var bodyWeight: Int
+    var age: Int
+    var gender: Gender
     var activity: Activity
     var goal: Goal
+    var bmi: Float
+    var bottomThresholdCalorie: Int
+    var upperThresholdCalorie: Int
 }

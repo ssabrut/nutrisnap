@@ -27,9 +27,10 @@ struct OnboardingView: View {
     @State private var bodyWeight: String = ""
     @State private var bodyHeight: String = ""
     @State private var age: String = ""
+    @State private var gender: Gender = .male
     @State private var selectedActivity: Activity = .minimal
     @State private var selectedGoal: Goal = .loss
-    @State private var isDataAvailable: Bool = false
+    @State private var isCalculating: Bool = false
     
     var body: some View {
         NavigationView {
@@ -37,11 +38,12 @@ struct OnboardingView: View {
                 VStack {
                     if step == 1 {
                         IntroductionOnboarding()
-                    } else {
+                    } else if step == 2 {
                         UserDataOnboarding(
                             bodyWeight: $bodyWeight,
                             bodyHeight: $bodyHeight,
                             age: $age,
+                            gender: $gender,
                             selectedActivity: $selectedActivity,
                             selectedGoal: $selectedGoal
                         )
@@ -49,7 +51,14 @@ struct OnboardingView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: CalculateView(), isActive: $isDataAvailable) {
+                    NavigationLink(destination: CalculateView(
+                        bodyWeight: $bodyWeight,
+                        bodyHeight: $bodyHeight,
+                        age: $age,
+                        gender: $gender,
+                        selectedActivity: $selectedActivity,
+                        selectedGoal: $selectedGoal
+                    ), isActive: $isCalculating) {
                         EmptyView()
                     }
                     
@@ -57,19 +66,7 @@ struct OnboardingView: View {
                         if step == 1 {
                             step = 2
                         } else {
-                            var user: User {
-                                User(bodyHeight: bodyHeight, bodyWeight: bodyWeight, age: age, activity: selectedActivity, goal: selectedGoal)
-                            }
-                            
-                            do {
-                                let encoder: JSONEncoder = JSONEncoder()
-                                let data = try encoder.encode(user)
-                                let json = String(data: data, encoding: String.Encoding.utf8)!
-                                UserDefaults.standard.set(json, forKey: "user")
-                                isDataAvailable = true
-                            } catch {
-                                print("Error encoding user: \(error)")
-                            }
+                            isCalculating.toggle()
                         }
                     }) {
                         Text(step == 1 ? "Continue" : "Get Started")

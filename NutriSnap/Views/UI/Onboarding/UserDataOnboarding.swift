@@ -12,6 +12,7 @@ struct UserDataOnboarding: View {
     @Binding var bodyWeight: String
     @Binding var bodyHeight: String
     @Binding var age: String
+    @Binding var gender: Gender
     @Binding var selectedActivity: Activity
     @Binding var selectedGoal: Goal
     
@@ -24,6 +25,7 @@ struct UserDataOnboarding: View {
             bodyWeight: $bodyWeight,
             bodyHeight: $bodyHeight,
             age: $age,
+            gender: $gender,
             selectedActivity: $selectedActivity,
             selectedGoal: $selectedGoal
         )
