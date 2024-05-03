@@ -20,6 +20,7 @@ extension Meal {
     @NSManaged public var image: Data?
     @NSManaged public var name: String?
     @NSManaged public var created_at: Date?
+    @NSManaged public var classes: String?
 
 }
 

@@ -90,6 +90,7 @@ struct DashboardView: View {
     @State private var isGoalSheetShow: Bool = false
     @State private var isAddData: Bool = false
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Meal.created_at, ascending: false)]) private var meals: FetchedResults<Meal>
+    private var user: User?
     
     var body: some View {
         NavigationView {

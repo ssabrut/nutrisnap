@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreML
 
 struct accessCameraView: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
@@ -49,6 +50,7 @@ struct AddMealView: View {
     
     private let headerFontSize: CGFloat = 18
     private let cornerRadius: CGFloat = 12
+    @ObservedObject var classifier: ImageClassifier = ImageClassifier()
     @State private var showCamera = false
     @State private var selectedImage: UIImage?
     @State private var mealName: String = ""
@@ -60,6 +62,7 @@ struct AddMealView: View {
         meal.name = mealName
         meal.image = selectedImage.jpegData(compressionQuality: 1.0)
         meal.created_at = Date()
+        meal.classes = classifier.imageClass
         
         do {
             try self.viewContext.save()
@@ -80,6 +83,23 @@ struct AddMealView: View {
                             .frame(width: .infinity, height: 256)
                             .cornerRadius(12)
                             .padding(.bottom, 16)
+//                        Group {
+//                            if let imageClass = classifier.imageClass {
+//                                HStack{
+//                                    Text("Image categories:")
+//                                        .font(.caption)
+//                                    Text(imageClass)
+//                                        .bold()
+//                                }
+//                            } else {
+//                                HStack{
+//                                    Text("Image categories: NA")
+//                                        .font(.caption)
+//                                }
+//                            }
+//                        }
+//                        .font(.subheadline)
+//                        .padding()
                     }
                     
                     Button(action: {
@@ -108,7 +128,10 @@ struct AddMealView: View {
                     .padding(.vertical, 24)
                     Spacer()
                     Button(action: {
-                        saveMeal(mealName: mealName, selectedImage: selectedImage!)
+                        if selectedImage != nil {
+                            classifier.detect(uiImage: selectedImage!)
+                            saveMeal(mealName: mealName, selectedImage: selectedImage!)
+                        }
                     }) {
                         Text("Add")
                             .font(.system(size: headerFontSize))
