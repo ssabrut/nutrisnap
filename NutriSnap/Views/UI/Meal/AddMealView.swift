@@ -83,23 +83,6 @@ struct AddMealView: View {
                             .frame(width: .infinity, height: 256)
                             .cornerRadius(12)
                             .padding(.bottom, 16)
-//                        Group {
-//                            if let imageClass = classifier.imageClass {
-//                                HStack{
-//                                    Text("Image categories:")
-//                                        .font(.caption)
-//                                    Text(imageClass)
-//                                        .bold()
-//                                }
-//                            } else {
-//                                HStack{
-//                                    Text("Image categories: NA")
-//                                        .font(.caption)
-//                                }
-//                            }
-//                        }
-//                        .font(.subheadline)
-//                        .padding()
                     }
                     
                     Button(action: {

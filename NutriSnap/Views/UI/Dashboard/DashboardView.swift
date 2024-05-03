@@ -135,7 +135,11 @@ struct DashboardView: View {
                         }
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                         ForEach(meals, id: \.self) { meal in
-                            MealCard(mealName: meal.name!, image: meal.image!)
+                            NavigationLink {
+                                DetailMealView(meal: meal)
+                            } label: {
+                                MealCard(mealName: meal.name!, image: meal.image!)
+                            }
                         }
                         Spacer()
                     }
