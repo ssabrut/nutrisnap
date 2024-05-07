@@ -28,14 +28,14 @@ struct SheetView: View {
             }
             
             if !self.isLoading {
-                UserDataForm(
-                    bodyWeight: $bodyWeight,
-                    bodyHeight: $bodyHeight,
-                    age: $age,
-                    gender: $gender,
-                    selectedActivity: $selectedActivity,
-                    selectedGoal: $selectedGoal
-                )
+//                UserDataForm(
+//                    bodyWeight: $bodyWeight,
+//                    bodyHeight: $bodyHeight,
+//                    age: $age,
+//                    gender: $gender,
+//                    selectedActivity: $selectedActivity,
+//                    selectedGoal: $selectedGoal
+//                )
                 
                 Button(action: {
                     print("a")

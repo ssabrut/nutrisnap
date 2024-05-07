@@ -14,7 +14,7 @@ struct User: Codable {
     var gender: Gender
     var activity: Activity
     var goal: Goal
-    var bmi: Float
-    var bottomThresholdCalorie: Int
-    var upperThresholdCalorie: Int
+    var bmi: Float?
+    var bottomThresholdCalorie: Int?
+    var upperThresholdCalorie: Int?
 }

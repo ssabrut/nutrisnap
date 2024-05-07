@@ -31,12 +31,15 @@
 		AFD018FF2BDF7E1200A2E626 /* CalorieProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */; };
 		AFD019012BDF7E4A00A2E626 /* MealCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019002BDF7E4A00A2E626 /* MealCard.swift */; };
 		AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019052BDF80EF00A2E626 /* OnboardingView.swift */; };
-		AFD019182BE08A5000A2E626 /* IntroductionOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019172BE08A5000A2E626 /* IntroductionOnboarding.swift */; };
-		AFD0191A2BE08B0500A2E626 /* UserDataOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019192BE08B0500A2E626 /* UserDataOnboarding.swift */; };
-		AFD0191F2BE08D8800A2E626 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0191E2BE08D8800A2E626 /* Header.swift */; };
-		AFD019282BE322E700A2E626 /* UserDataForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD019272BE322E700A2E626 /* UserDataForm.swift */; };
 		AFD0192C2BE3276E00A2E626 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0192B2BE3276E00A2E626 /* DashboardView.swift */; };
 		AFD690C62BE9C4E70038AD3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD690C52BE9C4E70038AD3C /* User.swift */; };
+		AFD690D32BE9D08F0038AD3C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD690D22BE9D08F0038AD3C /* Extension.swift */; };
+		AFD690D52BE9D0D40038AD3C /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD690D42BE9D0D40038AD3C /* Shared.swift */; };
+		AFD690DA2BE9D6A30038AD3C /* FormModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD690D92BE9D6A30038AD3C /* FormModifier.swift */; };
+		AFD690DD2BE9D6C30038AD3C /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD690DC2BE9D6C30038AD3C /* Enum.swift */; };
+		AFD690DF2BE9E1FE0038AD3C /* InputUserDataModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD690DE2BE9E1FE0038AD3C /* InputUserDataModifier.swift */; };
+		AFD690E12BE9E3FC0038AD3C /* IntroductionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD690E02BE9E3FC0038AD3C /* IntroductionModifier.swift */; };
+		AFD690E72BE9E4950038AD3C /* HeaderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD690E62BE9E4950038AD3C /* HeaderModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,12 +87,15 @@
 		AFD018FE2BDF7E1200A2E626 /* CalorieProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieProgressCard.swift; sourceTree = "<group>"; };
 		AFD019002BDF7E4A00A2E626 /* MealCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCard.swift; sourceTree = "<group>"; };
 		AFD019052BDF80EF00A2E626 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		AFD019172BE08A5000A2E626 /* IntroductionOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionOnboarding.swift; sourceTree = "<group>"; };
-		AFD019192BE08B0500A2E626 /* UserDataOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataOnboarding.swift; sourceTree = "<group>"; };
-		AFD0191E2BE08D8800A2E626 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		AFD019272BE322E700A2E626 /* UserDataForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataForm.swift; sourceTree = "<group>"; };
 		AFD0192B2BE3276E00A2E626 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		AFD690C52BE9C4E70038AD3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AFD690D22BE9D08F0038AD3C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		AFD690D42BE9D0D40038AD3C /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		AFD690D92BE9D6A30038AD3C /* FormModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModifier.swift; sourceTree = "<group>"; };
+		AFD690DC2BE9D6C30038AD3C /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		AFD690DE2BE9E1FE0038AD3C /* InputUserDataModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputUserDataModifier.swift; sourceTree = "<group>"; };
+		AFD690E02BE9E3FC0038AD3C /* IntroductionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionModifier.swift; sourceTree = "<group>"; };
+		AFD690E62BE9E4950038AD3C /* HeaderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +251,8 @@
 		AFD018F82BDBF8E900A2E626 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AFD690D72BE9D6870038AD3C /* Modifier */,
+				AFD690D02BE9D0680038AD3C /* Onboarding */,
 				AFD690CF2BE9CE030038AD3C /* Splash */,
 				AFD019022BDF808300A2E626 /* UI */,
 			);
@@ -254,7 +262,6 @@
 		AFD019022BDF808300A2E626 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				AFD019152BE0848400A2E626 /* Onboarding */,
 				AF877AB62BE36E1800C257FD /* Meal */,
 				AF3EF8E82BE3479700DCA462 /* Profile */,
 				AF3EF8E52BE3475000DCA462 /* History */,
@@ -275,41 +282,13 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
-		AFD019152BE0848400A2E626 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				AFD019052BDF80EF00A2E626 /* OnboardingView.swift */,
-				AFD0191B2BE08D5F00A2E626 /* Modifiers */,
-				AFD019172BE08A5000A2E626 /* IntroductionOnboarding.swift */,
-				AFD019192BE08B0500A2E626 /* UserDataOnboarding.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		AFD019162BE0848E00A2E626 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				AF3EF8EB2BE34AC000DCA462 /* Loader */,
-				AFD019262BE322D500A2E626 /* Form */,
 				AFD019072BE07EEA00A2E626 /* Card */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		AFD0191B2BE08D5F00A2E626 /* Modifiers */ = {
-			isa = PBXGroup;
-			children = (
-				AFD0191E2BE08D8800A2E626 /* Header.swift */,
-			);
-			path = Modifiers;
-			sourceTree = "<group>";
-		};
-		AFD019262BE322D500A2E626 /* Form */ = {
-			isa = PBXGroup;
-			children = (
-				AFD019272BE322E700A2E626 /* UserDataForm.swift */,
-			);
-			path = Form;
 			sourceTree = "<group>";
 		};
 		AFD0192A2BE3276500A2E626 /* Dashboard */ = {
@@ -352,6 +331,9 @@
 		AFD690CE2BE9CD5C0038AD3C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AFD690D22BE9D08F0038AD3C /* Extension.swift */,
+				AFD690D42BE9D0D40038AD3C /* Shared.swift */,
+				AFD690DC2BE9D6C30038AD3C /* Enum.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -362,6 +344,33 @@
 				AFD018F92BDBF98C00A2E626 /* SplashView.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		AFD690D02BE9D0680038AD3C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AFD690D62BE9D5EB0038AD3C /* Modifier */,
+				AFD019052BDF80EF00A2E626 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AFD690D62BE9D5EB0038AD3C /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				AFD690DE2BE9E1FE0038AD3C /* InputUserDataModifier.swift */,
+				AFD690E02BE9E3FC0038AD3C /* IntroductionModifier.swift */,
+				AFD690E62BE9E4950038AD3C /* HeaderModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		AFD690D72BE9D6870038AD3C /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				AFD690D92BE9D6A30038AD3C /* FormModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,20 +510,23 @@
 				AFD019012BDF7E4A00A2E626 /* MealCard.swift in Sources */,
 				AFD018FC2BDF3F8100A2E626 /* MainView.swift in Sources */,
 				AF877AB52BE3686B00C257FD /* CalculateView.swift in Sources */,
-				AFD019182BE08A5000A2E626 /* IntroductionOnboarding.swift in Sources */,
-				AFD0191F2BE08D8800A2E626 /* Header.swift in Sources */,
-				AFD0191A2BE08B0500A2E626 /* UserDataOnboarding.swift in Sources */,
+				AFD690DD2BE9D6C30038AD3C /* Enum.swift in Sources */,
+				AFD690D32BE9D08F0038AD3C /* Extension.swift in Sources */,
 				AF3EF8EA2BE3479F00DCA462 /* ProfileView.swift in Sources */,
 				AF877ACF2BE5088800C257FD /* DataManager.swift in Sources */,
 				AF3EF8E72BE3475A00DCA462 /* HistoryView.swift in Sources */,
 				AF877ACA2BE507FE00C257FD /* Meal+CoreDataClass.swift in Sources */,
+				AFD690E12BE9E3FC0038AD3C /* IntroductionModifier.swift in Sources */,
+				AFD690D52BE9D0D40038AD3C /* Shared.swift in Sources */,
+				AFD690DA2BE9D6A30038AD3C /* FormModifier.swift in Sources */,
 				AFD019062BDF80EF00A2E626 /* OnboardingView.swift in Sources */,
+				AFD690DF2BE9E1FE0038AD3C /* InputUserDataModifier.swift in Sources */,
 				AF3EF8EF2BE34B2000DCA462 /* FoodLoader.swift in Sources */,
 				AFD018CF2BDBF72E00A2E626 /* NutriSnapApp.swift in Sources */,
 				AF877AF42BE5233100C257FD /* DetailMealView.swift in Sources */,
 				AF877AF22BE520F700C257FD /* ImageClassifier.swift in Sources */,
-				AFD019282BE322E700A2E626 /* UserDataForm.swift in Sources */,
 				AF877AB82BE36E3A00C257FD /* AddMealView.swift in Sources */,
+				AFD690E72BE9E4950038AD3C /* HeaderModifier.swift in Sources */,
 				AF877AEC2BE51BC000C257FD /* Classifier.swift in Sources */,
 				AFD0192C2BE3276E00A2E626 /* DashboardView.swift in Sources */,
 				AF877ACB2BE507FE00C257FD /* Meal+CoreDataProperties.swift in Sources */,
@@ -693,6 +705,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -730,6 +743,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

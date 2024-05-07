@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IntroductionOnboarding: View {
+struct IntroductionModifier: View {
     private let onboardingImageSize: CGFloat = 256
     private let cornerRadius: CGFloat = 12
     
@@ -23,5 +23,5 @@ struct IntroductionOnboarding: View {
 }
 
 #Preview {
-    IntroductionOnboarding()
+    IntroductionModifier()
 }

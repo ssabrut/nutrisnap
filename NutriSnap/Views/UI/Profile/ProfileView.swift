@@ -20,14 +20,14 @@ struct ProfileView: View {
         NavigationView { 
             ZStack {
                 VStack {
-                    UserDataForm(
-                        bodyWeight: $bodyWeight,
-                        bodyHeight: $bodyHeight,
-                        age: $age,
-                        gender: $gender,
-                        selectedActivity: $selectedActivity,
-                        selectedGoal: $selectedGoal
-                    )
+//                    UserDataForm(
+//                        bodyWeight: $bodyWeight,
+//                        bodyHeight: $bodyHeight,
+//                        age: $age,
+//                        gender: $gender,
+//                        selectedActivity: $selectedActivity,
+//                        selectedGoal: $selectedGoal
+//                    )
                     Spacer()
                     NavigationLink(destination: CalculateView(
                         bodyWeight: $bodyWeight,
