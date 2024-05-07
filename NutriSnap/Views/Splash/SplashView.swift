@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SplashView: View {
-    @State var isActive: Bool = false
-    @State var isDataAvailable: Bool = false
-    
+    @State private var isActive = false
+    @State private var isDataAvailable = false
+
     var body: some View {
         ZStack {
             RadialGradient(
@@ -19,11 +19,11 @@ struct SplashView: View {
                 startRadius: 0,
                 endRadius: 256
             )
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .ignoresSafeArea()
 
-            if self.isActive {
-                if self.isDataAvailable {
+            if isActive {
+                if isDataAvailable {
                     MainView()
                 } else {
                     OnboardingView()
@@ -35,16 +35,17 @@ struct SplashView: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.async {
+                if let user = UserDefaults.standard.string(forKey: "user"), !user.isEmpty {
+                    self.isDataAvailable = true
+                }
                 withAnimation {
-                    if ((UserDefaults.standard.string(forKey: "user")?.isEmpty) == false) {
-                        self.isDataAvailable = true
-                    }
                     self.isActive = true
                 }
             }
         }
     }
+
 }
 
 #Preview {
